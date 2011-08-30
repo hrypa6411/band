@@ -67,6 +67,12 @@
       		<artifactId>spring-web</artifactId>
       		<version>${org.springframework.version}</version>
     	</dependency>
+    	
+    	<dependency>
+      		<groupId>org.springframework</groupId>
+      		<artifactId>spring-webmvc</artifactId>
+      		<version>${org.springframework.version}</version>
+    	</dependency>
     
     	<dependency>
       		<groupId>org.hibernate</groupId>
@@ -130,7 +136,7 @@
     			<groupId>org.codehaus.mojo</groupId>
     			<artifactId>tomcat-maven-plugin</artifactId>
     			<configuration>
-    	    		<url>http://localhost:8011/manager/text</url>
+    	    		<url>http://localhost:8011/manager</url>
         			<server>mytomcat</server>
         		</configuration>
 			</plugin>
