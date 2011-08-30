@@ -2,5 +2,5 @@ package mvc.frontend.mvc.mapping;
 
 public class Mapping {
 	
-	public static final String HOME = "home";
+	public static final String HOME = "/WEB-INF/views/frontend/home.jsp";
 }
