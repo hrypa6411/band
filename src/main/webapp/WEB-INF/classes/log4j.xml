@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p [] %-28c{2} - %m\n"/>
+        </layout>
+    </appender>
+    
+    <appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
+    	<!-- The active file to log to -->
+        <param name="file" value="/home/rhr/Desktop/portal.log" />
+        <param name="append" value="true" />
+        <param name="encoding" value="UTF-8" />
+
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+        	<!-- The file to roll to, this is a fairly intelligent parameter, if the file
+                 ends in .gz, it gzips it, based on the date stamp it rolls at that time, 
+                 default is yyyy-MM-dd, (rolls at midnight)
+                 See: http://logging.apache.org/log4j/companions/extras/apidocs/org/apache/log4j/rolling/TimeBasedRollingPolicy.html -->
+        	<param name="FileNamePattern" value="/applogs/myportal/portal.%d.log.gz" />
+        </rollingPolicy>
+
+        <layout class="org.apache.log4j.PatternLayout">
+        	<!-- The log message pattern -->
+            <param name="ConversionPattern" value="%d %-5p [] %-28c{2} - %m\n"/>
+        </layout>
+    </appender>
+
+    <category name="org.hibernate">
+        <priority value="INFO"/>
+    </category>
+
+    <category name="org.hibernate.hql.ast.AST">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="org.hibernate.type">
+        <priority value="TRACE"/>
+    </category>
+
+    <category name="org.hibernate.cache">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="org.hibernate.transaction">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="org.hibernate.jdbc">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="org.hibernate.persister.entity">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="org.springframework.orm.hibernate3.support.OpenSessionInViewFilter">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="pl.touk">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="org.springframework">
+        <priority value="INFO"/>
+    </category>
+
+    <category name="org.hibernate.SQL">
+        <priority value="INFO"/>
+    </category>
+
+    <category name="org.apache.commons.httpclient">
+        <priority value="FINEST"/>
+    </category>
+    <category name="httpclient.wirer">
+        <priority value="FINEST"/>
+    </category>
+    <category name="httpclient.wire.header">
+        <priority value="FINEST"/>
+    </category>
+
+    <category name="org.springframework">
+        <priority value="INFO"/>
+    </category>
+
+    <category name="java.sql">
+        <priority value="debug"/>
+    </category>
+
+    <category name="org.springframework.web.servlet.DispatcherServlet">
+        <priority value="debug"/>
+    </category>
+
+    <category name="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <priority value="debug"/>
+    </category>
+
+    <category name="org.springframework.security">
+        <priority value="DEBUG"/>
+    </category>
+
+    <root>
+        <priority value="INFO"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ROLL"/>
+    </root>
+    
+</log4j:configuration>
