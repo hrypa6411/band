@@ -17,6 +17,6 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 	
-	<import resource="classpath:spring-context.xml"/>
+	<import resource="../spring-context.xml"/>
 	
 </beans>
